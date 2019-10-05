@@ -1,0 +1,40 @@
+.section1 {
+    background: #f8f9fa;
+    padding: 10%;
+}
+
+.twoCards1, .twoCards2 {
+    height: 500px;
+}
+
+.textforSpeech{
+    width: 100% !important;
+    height: 500px;
+    border: 0px !important;
+    box-shadow: none !important;
+    outline:0px none transparent;
+    padding: 10px;
+    font-size: 25px;
+}
+.textforSpeech:focus{
+    border: 0px !important;
+    box-shadow: none !important;  outline:0px none transparent;
+}
+.twoCards div {
+    margin: auto;
+    box-shadow: 0 12px 20px #d8e0e6;
+    -webkit-box-shadow: 0 12px 20px #d8e0e6;
+    background: none
+}
+
+.twoCards1 {
+    background: white !important;
+}
+
+.twoCards2 {
+    background: linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100% ) !important
+}
+.sectHead{
+    font-weight: lighter;
+    margin-bottom: 50px;
+}

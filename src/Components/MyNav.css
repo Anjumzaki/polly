@@ -3,5 +3,13 @@
 }
 .navbar-brand {
     padding-right: 15px;
-    border-right: 1px solid black
+    border-right: 1px solid black;
+    color: black !important;
+    font-weight: 500 !important;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: black !important;
+    font-weight: 500 !important;
+
 }

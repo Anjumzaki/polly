@@ -1,6 +1,6 @@
 .jumbotron {
     background-color: #f8f9fa!important;
-    height: 90vh;
+    height: 110vh;
     text-align: left;
     margin: auto;
     margin-bottom: 0px !important
@@ -14,9 +14,6 @@
 .header {
     background-color: #f8f9fa!important;
 }
-
-
-
 .el {
     position: absolute;
     opacity: 1;
@@ -27,3 +24,4 @@
     transform-origin: 50% 100%;
     background: white;
 }
+

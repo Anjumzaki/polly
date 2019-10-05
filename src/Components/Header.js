@@ -2,7 +2,8 @@ import React from 'react'
 import MyAnime from '../MyAnime'
 import Sanime from './Sanime'
 import { Jumbotron, Button } from 'reactstrap';
-import './Header.css'
+import './Header.css';
+import { AnimatedOnScroll } from "react-animated-css-onscroll";
 
 
 
@@ -15,20 +16,24 @@ export default class Header extends React.Component {
         return (
             <div className="header ">
                 <div className="container">
-                <Jumbotron className="row">
-                    <div className="col-md-6 col-12" >
-                        <h1 className="display-3">Hello, world!</h1>
-                        <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
-                        <hr className="my-2" />
-                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                        <p className="lead">
-                            <Button color="primary">Learn More</Button>
-                        </p>
-                    </div>
-                    <div className="col-md-6 col-12" style={{textAlign:'center'}} >
-                        <Sanime  />
-                    </div>
-                </Jumbotron>
+                    <Jumbotron className="row">
+
+                        <div className="col-md-6 col-12 animated fadeInLeft" >
+                            <h1 className="display-3">Hello, world!</h1>
+                            <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+                            <hr className="my-2" />
+                            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                            <p className="lead">
+                                <Button outline color="primary">Learn More</Button>
+                            </p>
+                        </div>
+
+
+
+                        <div className="col-md-6 col-12 animated fadeInRight" style={{ textAlign: 'center' }} >
+                            <Sanime />
+                        </div>
+                    </Jumbotron>
                 </div>
             </div>
         );

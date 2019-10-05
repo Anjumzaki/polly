@@ -1,0 +1,35 @@
+.aboutInnner{
+    height: 110vh !important;
+}
+.about{
+  background:   linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100%)
+}
+.aboutInnner div{
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+.imgDiv{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    margin: 46px auto 40px;
+    background: #fff;
+    border-radius: 100%;
+}
+.imgDiv+p{
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    letter-spacing: 0.2rem;
+}
+
+
