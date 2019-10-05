@@ -40,7 +40,7 @@ export default class MyAnime extends React.Component {
     render() {
       return <section>
   <article>
-<svg width="252px" height="94px" viewBox="3 11 252 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<svg width="80%" height="300px" viewBox="3 11 252 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
     
     <desc>Created with Sketch.</desc>
     <defs></defs>
@@ -78,10 +78,7 @@ export default class MyAnime extends React.Component {
     <path d="M252,12 L252,103.14209" id="Stroke-32" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" fill="none"></path>
 </svg>
   </article>
-  <footer>
-    <span>Made with</span> <a href="http://anime-js.com">anime.js</a>
-  </footer>
-  <a class="logo" href="http://anime-js.com"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1137/anime-logo.png"></img></a>
+  
 </section>;
     }
   }
