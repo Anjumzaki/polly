@@ -39,39 +39,36 @@ export default class MyNav extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink href="/components/">Documentation</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Options
+                  Resources
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    Option 1
+                    GitHub
                   </DropdownItem>
                   <DropdownItem>
-                    Option 2
+                    Npm
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
-                    Reset
+                    Yarn
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="/components/">Download</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink>Pricing</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Options
+                  Features
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
@@ -86,6 +83,12 @@ export default class MyNav extends React.Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <NavItem>
+                <NavLink>Login</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="btn btn-outline-primary">Sign Up</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

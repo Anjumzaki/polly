@@ -1,6 +1,7 @@
 import React from 'react'
 import './Section1.css';
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
+import DropVoice from './DropVoice'
 
 
 
@@ -12,7 +13,7 @@ export default class Section1 extends React.Component {
     render() {
         return (
             <div className="section1">
-                <AnimatedOnScroll animationIn="fadeInDown" animationOut="slideInDown">
+                <AnimatedOnScroll animationIn="fadeInDown" >
                     <h1 className='sectHead'>Yes it is! Try Now!</h1>
                 </AnimatedOnScroll>
                 <div className="container">
@@ -23,9 +24,18 @@ export default class Section1 extends React.Component {
 
                             <div className="col-md-5 col-12 twoCards1">
                                 <textarea className="textforSpeech" placeholder="Edit this Text to your text...Click Here"></textarea>
+                                <DropVoice/>
+
                             </div>
                             <div className="col-md-5 col-12 twoCards2">
-                                
+                                <div className="innerCards">
+                                   
+                            <i class="fa fa-play-circle"></i>
+                            </div>
+                            <div> 
+                            </div>
+                            
+                            
                             </div>
                             <div className="col-md-1 col-12 "></div>
 

@@ -9,22 +9,23 @@
 
 .textforSpeech{
     width: 100% !important;
-    height: 500px;
+    height: 430px;
     border: 0px !important;
     box-shadow: none !important;
     outline:0px none transparent;
     padding: 10px;
     font-size: 25px;
+    resize: none !important
 }
 .textforSpeech:focus{
     border: 0px !important;
     box-shadow: none !important;  outline:0px none transparent;
 }
-.twoCards div {
+.twoCards .twoCards1 ,.twoCards .twoCards2 {
     margin: auto;
     box-shadow: 0 12px 20px #d8e0e6;
     -webkit-box-shadow: 0 12px 20px #d8e0e6;
-    background: none
+    margin-top: auto;
 }
 
 .twoCards1 {
@@ -32,9 +33,20 @@
 }
 
 .twoCards2 {
-    background: linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100% ) !important
+    background: linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100% ) !important;
 }
+.twoCards2 i{
+    font-size: 120px;
+    margin-top: 90px;
+    color: #d8e0e6;
+    text-shadow: 0px 0px 10px black;
+}
+
 .sectHead{
     font-weight: lighter;
     margin-bottom: 50px;
+}
+.innerCards {
+    margin-top: 100px;
+    box-shadow: none !important;
 }
