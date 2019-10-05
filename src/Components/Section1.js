@@ -17,7 +17,7 @@ export default class Section1 extends React.Component {
                     <h1 className='sectHead'>Yes it is! Try Now!</h1>
                 </AnimatedOnScroll>
                 <div className="container">
-                    <AnimatedOnScroll animationIn="fadeInRight" animationOut="slideInDown">
+                    <AnimatedOnScroll animationIn="fadeInRight" >
 
                         <div className="row twoCards">
                             <div className="col-md-1 col-12"></div>

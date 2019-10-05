@@ -4,7 +4,7 @@
 }
 
 .twoCards1, .twoCards2 {
-    height: 500px;
+    min-height: 500px;
 }
 
 .textforSpeech{

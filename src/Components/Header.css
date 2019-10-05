@@ -1,6 +1,6 @@
 .jumbotron {
     background-color: #f8f9fa!important;
-    height: 110vh;
+    min-height: 110vh;
     text-align: left;
     margin: auto;
     margin-bottom: 0px !important
