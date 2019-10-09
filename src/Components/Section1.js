@@ -17,28 +17,20 @@ export default class Section1 extends React.Component {
                     <h1 className='sectHead'>Yes it is! Try Now!</h1>
                 </AnimatedOnScroll>
                 <div className="container">
-                    <AnimatedOnScroll animationIn="fadeInRight" >
+                    <AnimatedOnScroll className="rowOut" animationIn="fadeInRight" >
 
                         <div className="row twoCards">
-                            <div className="col-md-1 col-12"></div>
-
-                            <div className="col-md-5 col-12 twoCards1">
+                            <div className="col-md-9 col-12 twoCards1">
                                 <textarea className="textforSpeech" placeholder="Edit this Text to your text...Click Here"></textarea>
-                                <DropVoice/>
-
+                                <DropVoice />
                             </div>
-                            <div className="col-md-5 col-12 twoCards2">
+                            <div className="col-md-3 col-12 twoCards2">
                                 <div className="innerCards">
-                                   
-                            <i class="fa fa-play-circle"></i>
+                                    <i class="fa fa-play-circle"></i>
+                                </div>
+                               <div>
+                             </div>
                             </div>
-                            <div> 
-                            </div>
-                            
-                            
-                            </div>
-                            <div className="col-md-1 col-12 "></div>
-
                         </div>
                     </AnimatedOnScroll>
                 </div>

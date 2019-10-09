@@ -1,0 +1,21 @@
+.section2{
+    padding:10%;
+    background:   linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100%)
+}
+.aboutImage img{
+    width: 100%;
+    height: 100%;
+}
+.aboutImage{
+    padding:0px !important
+}
+.twoCardsA2 div{
+    background: white !important;
+}
+.sectHead1{
+    color: white;
+}
+.about{
+    text-align: left;
+    padding: 20px  !important;
+}

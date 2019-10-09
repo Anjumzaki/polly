@@ -1,0 +1,10 @@
+.about2{
+    background-color: #f8f9fa ;
+    padding: 10%;
+}
+.about2 .imgDiv+p{
+    color: black
+}
+.asd{
+    padding-top: 20px !important;
+}

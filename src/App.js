@@ -5,6 +5,11 @@ import MyNav from './Components/MyNav'
 import Header from './Components/Header'
 import About from './Components/About'
 import Section1 from './Components/Section1'
+import Section2 from './Components/Section2'
+import Section3 from './Components/Section3'
+import Footer from './Components/Footer'
+
+
 
 
 function App() {
@@ -15,6 +20,9 @@ function App() {
      <Header/>
      <About/>
      <Section1/>
+     <Section2/>
+     <Section3/>
+     <Footer/>
     </div>
   );
 }

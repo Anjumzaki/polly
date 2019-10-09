@@ -24,7 +24,7 @@ export default class MyAnime extends React.Component {
                         </div>
 
                         <div className="col-md-3  col-sm-6 col-12">
-                            <AnimatedOnScroll animationInDelay={100}  animationIn="fadeInUp" >
+                            <AnimatedOnScroll animationInDelay={200}  animationIn="fadeInUp" >
 
                                 <div className="imgDiv">
                                     <img src={require('../assets/two.svg')}></img>
@@ -35,7 +35,7 @@ export default class MyAnime extends React.Component {
 
                         </div>
                         <div className="col-md-3 col-sm-6 col-12">
-                            <AnimatedOnScroll animationInDelay={200} animationIn="fadeInUp" >
+                            <AnimatedOnScroll animationInDelay={400} animationIn="fadeInUp" >
                                 <div className="imgDiv">
                                     <img src={require('../assets/three.svg')}></img>
                                 </div>
@@ -45,7 +45,7 @@ export default class MyAnime extends React.Component {
 
                         </div>
                         <div className="col-md-3 col-sm-6 col-12">
-                            <AnimatedOnScroll animationInDelay={300} animationIn="fadeInUp" >
+                            <AnimatedOnScroll animationInDelay={600} animationIn="fadeInUp" >
                                 <div className="imgDiv">
                                     <img src={require('../assets/one.svg')}></img>
                                 </div>

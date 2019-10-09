@@ -1,0 +1,17 @@
+.footer{
+    min-height: 60vh;
+    background-color: #000;
+    color: white;
+    padding: 5% !important;
+    text-align: left;
+    font-weight: lighter;
+}
+.footer h4{
+    margin-bottom: 20px;
+}
+.footer p{
+    line-height: 15px !important;
+}
+.ftLink{
+    color: white
+}
