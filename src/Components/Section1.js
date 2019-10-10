@@ -30,7 +30,7 @@ export default class Section1 extends React.Component {
         var that = this
         axios({
             method: 'post',
-            url: 'http://34.69.77.247:5901/speechsynthesis/',
+            url: 'https://34.69.77.247:5901/speechsynthesis/',
             data: {text:that.state.soundText},
             config: { headers: {'Content-Type': 'application/json' }}
             })
@@ -47,7 +47,6 @@ export default class Section1 extends React.Component {
                 console.log(response);
             });
     }
-
     render() {
         return (
             <div className="section1">
