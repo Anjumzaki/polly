@@ -44,6 +44,6 @@ export default class MyAnime extends React.Component {
           
     }
     render() {
-      return <div class="wrapper"></div>;
+      return <div className="wrapper"></div>;
     }
   }

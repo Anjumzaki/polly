@@ -33,10 +33,15 @@
 
 .innerCards{
     text-align: center;
+    cursor: pointer;
+}
+.innerCards img{
+    margin-top: 34px;
 }
 
 .twoCards2 i{
     font-size: 120px;
+    cursor: pointer;
     color: #3a40d4;
 }
 .sectHead{
