@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bigear/microphone-recorder": "0.0.19",
     "animejs": "^3.1.0",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "react": "^16.10.2",
     "react-animated-css-onscroll": "^1.2.1",
+    "react-audio-analyser": "^0.2.5",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
-    "reactstrap": "^8.0.1"
+    "react-simple-chatbot": "^0.6.1",
+    "reactstrap": "^8.0.1",
+    "styled-components": "^4.4.0"
   },
   "engines": {
     "npm": "5.7.1",
