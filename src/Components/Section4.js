@@ -1,5 +1,5 @@
 import React from 'react'
-import './Section1.css';
+import './Section4.css';
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
 import DropVoice from './DropVoice';
 import { ThemeProvider } from 'styled-components';
@@ -10,10 +10,54 @@ import ChatBot from 'react-simple-chatbot';
 export default class Section4 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { soundUrl: null,soundText:'This is default Voice Please edit the text to continue',soundLoading:false };
-        // this.handleText = this.handleText.bind(this)
-        // this.handlePlay = this.handlePlay.bind(this)
+        this.state = {
+            sending: false,
+            allMesages: ['Hi! I wanna talk ', 'I am waiting for you texts..Go On!'],
+            send: '',
+            recieving: false,
+        };
+        this.setField = this.setField.bind(this)
+        this.sendText = this.sendText.bind(this)
+        this.receiveText = this.receiveText.bind(this)
 
+
+    }
+    setField(e) {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+    sendText() {
+        if (this.state.send) {
+            var pre = this.state.allMesages
+            pre.push(this.state.send)
+            this.setState({
+                allMesages: pre,
+                recieving: true
+            })
+            this.receiveText()
+        }
+
+    }
+    receiveText() {
+       var that = this
+       var pre = this.state.allMesages
+        axios({
+            method: 'post',
+            url: 'http://34.70.8.237:5901/texttotext/',
+            data: { text: that.state.send },
+            config: { headers: { 'Content-Type': 'application/json' } }
+        })
+            .then(function (response) {
+                pre.push(response.data)
+                console.log(response)
+                that.setState({
+                    recieving: false,
+                    allMesages: pre,
+                })
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });
     }
     componentDidMount() {
         // var audio = new Audio('http://34.69.77.247:5901/media/dd51c398-eb4d-11e9-b701-42010a80000f.wav')
@@ -49,34 +93,8 @@ export default class Section4 extends React.Component {
     //         });
     // }
     render() {
-        const theme = {
-            background:  ' linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100%)',
-            headerBgColor: 'white',
-            headerFontColor: '#3a40d4',
-            headerFontSize: '15px',
-            botBubbleColor: 'white',
-            botFontColor: '#3a40d4',
-            userBubbleColor: '#fff',
-            userFontColor: '#3a40d4',
-          };
-        const steps=[
-            {
-              id: '1',
-              message: 'What is your name?',
-              trigger: '2',
-            },
-            {
-              id: '2',
-              user: true,
-              trigger: '3',
-            },
-            {
-              id: '3',
-              message: 'Hi {previousValue}, nice to meet you!',
-              end: true,
-            },
-          ]
-      
+
+
         return (
             <div className="section1">
                 <AnimatedOnScroll animationIn="fadeInDown" >
@@ -84,23 +102,37 @@ export default class Section4 extends React.Component {
                 </AnimatedOnScroll>
                 <div className="container">
                     <AnimatedOnScroll animationIn="fadeInRight" >
-                    <ThemeProvider theme={theme}>
-                    <ChatBot style={{width:'70%',margin:'auto'}}  steps={steps}/>
-                    </ThemeProvider>
-                        {/* <div className="row twoCards">
-                            <div className="col-md-9 col-12 twoCards1">
-                                <textarea onChange={this.handleText} className="textforSpeech" placeholder="Edit this Text to your text...Click Here"></textarea>
-                                <DropVoice />
-                            </div>
-                            <div className="col-md-3 col-12 twoCards2">
-                                
-                                <div className="innerCards">
-                                    {this.state.soundLoading?<img src={require('../assets/806.gif')}></img>: <i onClick={this.handlePlay} className="fa fa-play-circle"></i>}
+                        <div className="container">
+                            <div className='row'>
+                                <div className="chats">
+                                    <div className="texts  mb-3">
+                                        <ul className="rendring">
+                                            {this.state.allMesages.map((val) =>
+                                                <li> <p> {val}</p> </li>
+                                            )}
+                                            {this.state.recieving ? <li>
+                                                <div class="ticontainer">
+                                                    <div class="tiblock">
+                                                        <div class="tidot"></div>
+                                                        <div class="tidot"></div>
+                                                        <div class="tidot"></div>
+                                                    </div>
+                                                </div>
+                                            </li> : null}
+
+                                        </ul>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" onClick={this.sendText} type="button"><i className="fa fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div>
-                                </div>
                             </div>
-                        </div> */}
+                        </div>
+
                     </AnimatedOnScroll>
                 </div>
             </div>

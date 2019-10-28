@@ -6,6 +6,9 @@
 .twoCards1, .twoCards2 {
     min-height: 200px;
 }
+.twoCards{
+    border-radius: 15px;;
+}
 
 .textforSpeech{
     width: 100% !important;
@@ -14,6 +17,8 @@
     box-shadow: none !important;
     outline:0px none transparent;
     padding: 10px;
+    padding-top: 30px;
+
     font-size: 20px;
     color: #3a40d4;
     resize: none !important

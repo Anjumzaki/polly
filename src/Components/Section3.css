@@ -40,6 +40,14 @@
 	padding: 0px;
 	margin-top: 70px;
 }
+.responseText{
+	background-color: #f8f9fa ;
+	margin: auto;
+	color: black;
+	padding: 30px;
+	border-radius: 5px;;
+}
+
 
 @keyframes pulse{
 	0%{

@@ -21,7 +21,8 @@ export default class Section2 extends React.Component {
             blob: null,
             file: null,
             url: null,
-            casText: null
+            casText: null,
+            res:null
         };
         this.intiliaze = this.intiliaze.bind(this);
         this.handleClickStop = this.handleClickStop.bind(this);
@@ -60,28 +61,21 @@ export default class Section2 extends React.Component {
         var upload = document.createElement('a');
         document.getElementById('recordingslist').appendChild(li)
         var filename = new Date().toISOString() + '.wav';
-        upload.href = "JavaScript:void(0)";
-        upload.innerHTML = "Upload";
-        upload.addEventListener("click", function (event) {
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function (e) {
-                if (this.readyState === 4) {
-                    console.log("Server returned: ", e.target.responseText);
-                   that.setState({
-                       casText:e.target.responseText
-                   })
-                }
-            };
-            var fd = new FormData();
-            fd.append("audio", blob, filename);
-            xhr.open("POST", "http://34.70.8.237:5901/speechtotext/", false);
-            xhr.send(fd);
-            let res = xhr.response
-
-        })
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function (e) {
+            if (this.readyState === 4) {
+                console.log("Server returned: ", e.target.responseText);
+                that.setState({
+                    casText: e.target.responseText,
+                    res:true
+                })
+            }
+        };
+        var fd = new FormData();
+        fd.append("audio", blob, filename);
+        xhr.open("POST", "http://34.70.8.237:5901/speechtotext/", true);
+        xhr.send(fd);
         li.appendChild(document.createTextNode(" "))//add a space in between
-        li.appendChild(upload)//add the upload link to li
-
         //add the li element to the ol
         document.getElementById('recordingslist').innerHTML = ''
         document.getElementById('recordingslist').appendChild(li)
@@ -101,14 +95,11 @@ export default class Section2 extends React.Component {
                 blob
             }, console.log('from setState', blob))
             that.handleCallBack(blob)
-            return blob
         })
         this.setState({
             recording: false
         })
-        var audioBlob = localStorage.getItem('audioBlob');
-        console.log('asd')
-        console.log(audioBlob)
+      
     }
     handleRecordClick = () => {
         if (this.state.recording) {
@@ -132,10 +123,19 @@ export default class Section2 extends React.Component {
                 </AnimatedOnScroll>
                 <div className="container">
                     <AnimatedOnScroll animationIn="fadeInRight" >
-                        <div><button className={`btn btn-outline-primary recording ${this.state.recording ? 'true' : 'false'}`} onClick={this.handleRecordClick}> <i className={this.state.recording ? 'fa fa-microphone' : 'fa fa-microphone-slash'}></i> </button></div>
+                        <div><button className={`btn btn-outline-primary recording ${this.state.recording ? 'true' : 'false'}`} onClick={this.handleRecordClick}> <i className={this.state.recording ? 'fa fa-stop' : 'fa fa-microphone'}></i> </button></div>
                     </AnimatedOnScroll>
                     <AnimatedOnScroll animationIn="fadeInRight" >  <ul id='recordingslist'></ul></AnimatedOnScroll>
-                    {this.state.casText ? <h5 style={{marginTop:'40px'}} className='sectHead1 sectHead'>Casper Says: {this.state.casText}</h5> : null}
+                    <div className="container">
+                        <div className="row" >
+                            <div className="col-12 " style={{textAlign:'center'}}>
+                                <div className="responseText col-10">   
+                                {this.state.casText ? <h5 > {this.state.casText}</h5> : this.state.res?'Not a valid':'Please speak in mic'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
                 </div>
             </div>
         );
