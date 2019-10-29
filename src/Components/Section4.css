@@ -21,7 +21,7 @@ width: 100%;
     padding: 0px;
 }
 .rendring li{
-    text-align: left;
+    text-align: right;
 }
 .rendring li p{
     position: relative;
@@ -31,19 +31,18 @@ width: 100%;
     background-color: #A8DDFD;
     text-align: left;
     font: 400 .9em 'Open Sans', sans-serif;
-    border: 1px solid #97C6E3;
     border-radius: 10px;
     width: auto !important;
     display: inline-block;
 }
 .rendring li:nth-child(2n+0) p{
-    background-color: #f8e896;
+    background-color: #3a40d4;
     text-align: left;
     font: 400 .9em 'Open Sans', sans-serif;
-    border: 1px solid #dfd087;
+    color: white;
 }
 .rendring li:nth-child(2n+0){
-    text-align: right;
+    text-align: left;
 }
 
 

@@ -74,7 +74,7 @@ export default class Section2 extends React.Component {
         };
         var fd = new FormData();
         fd.append("audio", blob, filename);
-        xhr.open("POST", "http://34.70.8.237:5901/speechtotext/", true);
+        xhr.open("POST", "http://34.70.8.237:5901/speechtospeech/", true);
         xhr.send(fd);
         li.appendChild(document.createTextNode(" "))//add a space in between
         //add the li element to the ol
@@ -125,16 +125,11 @@ export default class Section2 extends React.Component {
                 <div className="container">
                     <AnimatedOnScroll animationIn="fadeInRight" >
                         {this.state.loading?<img  src={require('../assets/806.gif')}></img>: <div><button className={`btn btn-outline-primary recording ${this.state.recording ? 'true' : 'false'}`} onClick={this.handleRecordClick}> <i className={this.state.recording ? 'fa fa-stop' : 'fa fa-microphone'}></i> </button></div>}
-                       
                     </AnimatedOnScroll>
                     <AnimatedOnScroll animationIn="fadeInRight" >  <ul id='recordingslist'></ul></AnimatedOnScroll>
                     <div className="container">
                         <div className="row" >
-                            <div className="col-12 " style={{textAlign:'center'}}>
-                                <div className="responseText col-10">   
-                                 {this.state.casText ? <h5 > {this.state.casText}</h5> : this.state.res?'Not a valid':'Please speak in mic'}
-                                </div>
-                            </div>
+                        <audio style={{display:"none"}} src={JSON.parse(this.state.casText) } controls autoPlay></audio>                          
                         </div>
                     </div>
                 

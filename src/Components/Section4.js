@@ -25,21 +25,23 @@ export default class Section4 extends React.Component {
     setField(e) {
         this.setState({ [e.target.name]: e.target.value })
     }
-    sendText() {
+    sendText(e) {
+        e.preventDefault()
         if (this.state.send) {
             var pre = this.state.allMesages
             pre.push(this.state.send)
             this.setState({
                 allMesages: pre,
-                recieving: true
+                recieving: true,
+                send:''
             })
             this.receiveText()
         }
 
     }
     receiveText() {
-       var that = this
-       var pre = this.state.allMesages
+        var that = this
+        var pre = this.state.allMesages
         axios({
             method: 'post',
             url: 'http://34.70.8.237:5901/texttotext/',
@@ -107,27 +109,30 @@ export default class Section4 extends React.Component {
                                 <div className="chats">
                                     <div className="texts  mb-3">
                                         <ul className="rendring">
-                                            {this.state.allMesages.map((val) =>
-                                                <li> <p> {val}</p> </li>
+                                            {this.state.allMesages.map((val,i) =>
+                                                <li key={i}> <p> {val}</p> </li>
                                             )}
                                             {this.state.recieving ? <li>
-                                                <div class="ticontainer">
-                                                    <div class="tiblock">
-                                                        <div class="tidot"></div>
-                                                        <div class="tidot"></div>
-                                                        <div class="tidot"></div>
+                                                <div className="ticontainer">
+                                                    <div className="tiblock">
+                                                        <div className="tidot"></div>
+                                                        <div className="tidot"></div>
+                                                        <div className="tidot"></div>
                                                     </div>
                                                 </div>
                                             </li> : null}
 
                                         </ul>
                                     </div>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" onClick={this.sendText} type="button"><i className="fa fa-arrow-right"></i></button>
+                                    <form onSubmit={this.sendText}>
+                                        <div className="input-group mb-3">
+
+                                            <input type="text" className="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
+                                            <div className="input-group-append">
+                                                <button type="submit" className="btn btn-outline-secondary" type="button"><i className="fa fa-arrow-right"></i></button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
 
                                 </div>
                             </div>
