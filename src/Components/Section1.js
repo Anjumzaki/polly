@@ -65,7 +65,7 @@ export default class Section1 extends React.Component {
                             <div className="col-md-3 col-12 twoCards2">
                                 
                                 <div className="innerCards">
-                                    {this.state.soundLoading?<img src={require('../assets/806.gif')}></img>: <i onClick={this.handlePlay} className="fa fa-play-circle"></i>}
+                                    {this.state.soundLoading?<img className="loader-gif" src={require('../assets/806.gif')}></img>: <i onClick={this.handlePlay} className="fa fa-play-circle"></i>}
                                 </div>
                                 <div>
                                 </div>

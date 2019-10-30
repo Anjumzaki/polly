@@ -12,7 +12,7 @@ export default class Section4 extends React.Component {
         super(props);
         this.state = {
             sending: false,
-            allMesages: ['Hi! I wanna talk ', 'I am waiting for you texts..Go On!'],
+            allMesages: [ {id:'user',text:'Hi! I wanna talk '}, {id:'server',text:'I am waiting for you.. Go on '}],
             send: '',
             recieving: false,
         };
@@ -29,9 +29,9 @@ export default class Section4 extends React.Component {
         e.preventDefault()
         if (this.state.send) {
             var pre = this.state.allMesages
-            pre.push(this.state.send)
+            pre.push( {id:'user',text:this.state.send})
             this.setState({
-                allMesages: pre,
+                userMessage: pre,
                 recieving: true,
                 send:''
             })
@@ -49,7 +49,7 @@ export default class Section4 extends React.Component {
             config: { headers: { 'Content-Type': 'application/json' } }
         })
             .then(function (response) {
-                pre.push(response.data)
+                pre.push({id:'server',text:response.data})
                 console.log(response)
                 that.setState({
                     recieving: false,
@@ -110,8 +110,9 @@ export default class Section4 extends React.Component {
                                     <div className="texts  mb-3">
                                         <ul className="rendring">
                                             {this.state.allMesages.map((val,i) =>
-                                                <li key={i}> <p> {val}</p> </li>
+                                                <li  className={`${val.id=='user'?'userMessages':'serverMessages'}`} key={i}> <p> {val.text}</p> </li>
                                             )}
+                                        
                                             {this.state.recieving ? <li>
                                                 <div className="ticontainer">
                                                     <div className="tiblock">
@@ -129,7 +130,7 @@ export default class Section4 extends React.Component {
 
                                             <input type="text" className="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
                                             <div className="input-group-append">
-                                                <button type="submit" className="btn btn-outline-secondary" type="button"><i className="fa fa-arrow-right"></i></button>
+                                                <button type="submit" className="btn btn-outline-secondary" ><i className="fa fa-arrow-right"></i></button>
                                             </div>
                                         </div>
                                     </form>

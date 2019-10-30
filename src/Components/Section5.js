@@ -124,7 +124,7 @@ export default class Section2 extends React.Component {
                 </AnimatedOnScroll>
                 <div className="container">
                     <AnimatedOnScroll animationIn="fadeInRight" >
-                        {this.state.loading?<img  src={require('../assets/806.gif')}></img>: <div><button className={`btn btn-outline-primary recording ${this.state.recording ? 'true' : 'false'}`} onClick={this.handleRecordClick}> <i className={this.state.recording ? 'fa fa-stop' : 'fa fa-microphone'}></i> </button></div>}
+                        {this.state.loading?<img className="loader-gif"  src={require('../assets/806.gif')}></img>: <div><button className={`btn btn-outline-primary recording ${this.state.recording ? 'true' : 'false'}`} onClick={this.handleRecordClick}> <i className={this.state.recording ? 'fa fa-stop' : 'fa fa-microphone'}></i> </button></div>}
                        
                     </AnimatedOnScroll>
                     <AnimatedOnScroll animationIn="fadeInRight" >  <ul id='recordingslist'></ul></AnimatedOnScroll>
