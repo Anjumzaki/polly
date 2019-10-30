@@ -15,6 +15,10 @@ width: 100%;
     width: 90%;
     display: inline-block;
 }
+#render{
+  max-height: 400px;
+  overflow: auto;
+}
 .rendring{
     list-style-type:none ;
     margin-right: 0px !important;

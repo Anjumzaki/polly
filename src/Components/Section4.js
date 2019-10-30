@@ -1,10 +1,7 @@
 import React from 'react'
 import './Section4.css';
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
-import DropVoice from './DropVoice';
-import { ThemeProvider } from 'styled-components';
 import axios from 'axios';
-import ChatBot from 'react-simple-chatbot';
 
 
 export default class Section4 extends React.Component {
@@ -12,7 +9,7 @@ export default class Section4 extends React.Component {
         super(props);
         this.state = {
             sending: false,
-            allMesages: [ {id:'user',text:'Hi! I wanna talk '}, {id:'server',text:'I am waiting for you.. Go on '}],
+            allMesages: [{ id: 'user', text: 'Hi! I wanna talk ' }, { id: 'server', text: 'I am waiting for you.. Go on ' }],
             send: '',
             recieving: false,
         };
@@ -29,12 +26,14 @@ export default class Section4 extends React.Component {
         e.preventDefault()
         if (this.state.send) {
             var pre = this.state.allMesages
-            pre.push( {id:'user',text:this.state.send})
+            pre.push({ id: 'user', text: this.state.send })
             this.setState({
                 userMessage: pre,
                 recieving: true,
-                send:''
+                send: ''
             })
+            var target = document.getElementById("render");
+            target.scrollTop = target.scrollHeight;
             this.receiveText()
         }
 
@@ -49,21 +48,29 @@ export default class Section4 extends React.Component {
             config: { headers: { 'Content-Type': 'application/json' } }
         })
             .then(function (response) {
-                pre.push({id:'server',text:response.data})
+                pre.push({ id: 'server', text: response.data })
                 console.log(response)
                 that.setState({
                     recieving: false,
                     allMesages: pre,
                 })
+            }).then(function(){
+                var target = document.getElementById("render");
+                target.scrollTop = target.scrollHeight;
             })
             .catch(function (response) {
                 //handle error
                 console.log(response);
             });
-    }
-    componentDidMount() {
-        // var audio = new Audio('http://34.69.77.247:5901/media/dd51c398-eb4d-11e9-b701-42010a80000f.wav')
-        // audio.play()
+        var target = document.getElementById("render");
+        target.scrollTop = target.scrollHeight;
+        console.log('asdas mounter')
+        // document.getElementById('render').scrollIntoView({block: 'end', behavior: 'smooth'});
+        // window.scrollTo({
+        //     top: document.getElementById('render').scrollHeight,
+        //     left: 0,
+        //     behavior: 'smooth'
+        //   });
     }
     // handleText=(e)=>{
     //     this.setState({
@@ -94,9 +101,11 @@ export default class Section4 extends React.Component {
     //             console.log(response);
     //         });
     // }
+    componentDidMount(){
+        var target = document.getElementById("render");
+        target.scrollTop = target.scrollHeight;
+    }
     render() {
-
-
         return (
             <div className="section1">
                 <AnimatedOnScroll animationIn="fadeInDown" >
@@ -106,13 +115,16 @@ export default class Section4 extends React.Component {
                     <AnimatedOnScroll animationIn="fadeInRight" >
                         <div className="container">
                             <div className='row'>
-                                <div className="chats">
-                                    <div className="texts  mb-3">
-                                        <ul className="rendring">
-                                            {this.state.allMesages.map((val,i) =>
-                                                <li  className={`${val.id=='user'?'userMessages':'serverMessages'}`} key={i}> <p> {val.text}</p> </li>
+                                <div className="chats"  >
+                                    <div className="texts   mb-3" id="render"  >
+                                        <ul className="rendring" >
+
+                                            {this.state.allMesages.map((val, i) =>
+                                            
+                                                <li className={`${val.id == 'user' ? 'userMessages' : 'serverMessages'}`} key={i}> <p> {val.text}</p> </li>
                                             )}
-                                        
+                                            <div ></div>
+
                                             {this.state.recieving ? <li>
                                                 <div className="ticontainer">
                                                     <div className="tiblock">
