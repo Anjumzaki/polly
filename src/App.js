@@ -27,7 +27,6 @@ function App() {
      <About/>
      <Section1/>
      <Section5/>
-
      <Section4/>
      <Section6/>
      <Section2/>

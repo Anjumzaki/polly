@@ -31,9 +31,9 @@ export default class Section4 extends React.Component {
                 userMessage: pre,
                 recieving: true,
                 send: ''
-            })
-            var target = document.getElementById("render");
-            target.scrollTop = target.scrollHeight;
+            },()=>{ var target = document.getElementById("render");
+            target.scrollTop = target.scrollHeight;})
+           
             this.receiveText()
         }
 
@@ -137,10 +137,10 @@ export default class Section4 extends React.Component {
 
                                         </ul>
                                     </div>
-                                    <form onSubmit={this.sendText}>
+                                    <form  autocomplete="off"  onSubmit={this.sendText}>
                                         <div className="input-group mb-3">
 
-                                            <input type="text" className="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
+                                            <input  autocomplete="off"  type="text" className="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
                                             <div className="input-group-append">
                                                 <button type="submit" className="btn btn-outline-secondary" ><i className="fa fa-arrow-right"></i></button>
                                             </div>

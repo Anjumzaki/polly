@@ -85,21 +85,26 @@ export default class Section2 extends React.Component {
 
     handleClickStop = () => {
         var that = this
+       
+        const { recorder, audio_stream } = this.state
+        if( audio_stream){
+        recorder && recorder.stop()
+        audio_stream.getAudioTracks()[0].stop()
         this.setState({
             loading: true,
             recording: false
 
         })
-        const { recorder, audio_stream } = this.state
-        recorder && recorder.stop()
-        audio_stream.getAudioTracks()[0].stop()
-
         recorder.exportWAV(DEFAULT_AUDIO_FORMAT, function (blob) {
             that.setState({
                 blob
             }, console.log('from setState', blob))
             that.handleCallBack(blob)
         })
+    }
+    else{
+        alert('Please Allow Mic')
+    }
       
     }
     handleRecordClick = () => {
@@ -124,7 +129,7 @@ export default class Section2 extends React.Component {
                 </AnimatedOnScroll>
                 <div className="container">
                     <AnimatedOnScroll animationIn="fadeInRight" >
-                        {this.state.loading?<img className="loader-gif"  src={require('../assets/806.gif')}></img>: <div><button className={`btn btn-outline-primary recording ${this.state.recording ? 'true' : 'false'}`} onClick={this.handleRecordClick}> <i className={this.state.recording ? 'fa fa-stop' : 'fa fa-microphone'}></i> </button></div>}
+                        {this.state.loading?<img className="loader-gif"  src={require('../assets/806.gif')}></img>:<button className={`btn btn-outline-primary recording ${this.state.recording ? 'true' : 'false'}`} onClick={this.handleRecordClick}> <i className={this.state.recording ? 'fa fa-stop' : 'fa fa-microphone'}></i> </button>}
                     </AnimatedOnScroll>
                     <AnimatedOnScroll animationIn="fadeInRight" >  <ul id='recordingslist'></ul></AnimatedOnScroll>
                     <div className="container">
