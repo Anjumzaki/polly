@@ -38,7 +38,6 @@ export default class Section2 extends React.Component {
                 latencyHint: 'interactive',
                 sampleRate: 16000,
               })
-        
             console.log('here', this.state.audio_context)
         } catch (e) {
             alert('No web audio support in this browser!')
@@ -61,7 +60,10 @@ export default class Section2 extends React.Component {
     handleCallBack = async (blob) => {
         var that = this
         console.log(blob)
-        const url = URL.createObjectURL(blob);
+        const url = window.URL.createObjectURL(blob);
+        this.setState({
+            url :url
+        })
         const li = document.createElement('li')
         var upload = document.createElement('a');
         document.getElementById('recordingslist').appendChild(li)
@@ -144,6 +146,7 @@ export default class Section2 extends React.Component {
                                 <div className="responseText col-10">   
                                  {this.state.casText ? <h5 > {this.state.casText}</h5> : this.state.res?'Not a valid':'Please speak in mic'}
                                 </div>
+                                <audio src={this.state.url} controls></audio>
                             </div>
                         </div>
                     </div>
