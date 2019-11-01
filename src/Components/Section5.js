@@ -2,10 +2,8 @@ import React from 'react'
 import './Section2.css';
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
 import DropVoice from './DropVoice'
-import aboutImg from '../assets/about.jpg'
 import Recorder from '@bigear/microphone-recorder'
 import { thisTypeAnnotation } from '@babel/types';
-import axios from 'axios'
 const DEFAULT_AUDIO_FORMAT = 'audio/wav; codecs=MS_PCM'
 
 
@@ -34,10 +32,7 @@ export default class Section2 extends React.Component {
         try {
             window.AudioContext = window.AudioContext || window.webkitAudioContext
             window.URL = window.URL || window.webkitURL
-            this.state.audio_context = new AudioContext({
-                latencyHint: 'interactive',
-                sampleRate: 16000,
-              })
+            this.state.audio_context = new AudioContext()
             console.log('here', this.state.audio_context)
         } catch (e) {
             alert('No web audio support in this browser!')
