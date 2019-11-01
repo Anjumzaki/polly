@@ -137,10 +137,10 @@ export default class Section4 extends React.Component {
 
                                         </ul>
                                     </div>
-                                    <form  autocomplete="off"  onSubmit={this.sendText}>
+                                    <form  autoComplete="off"  onSubmit={this.sendText}>
                                         <div className="input-group mb-3">
 
-                                            <input  autocomplete="off"  type="text" className="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
+                                            <input  autoComplete="off"  type="text" className="form-control" placeholder="Type here..." onChange={this.setField} name="send" value={this.state.send} />
                                             <div className="input-group-append">
                                                 <button type="submit" className="btn btn-outline-secondary" ><i className="fa fa-arrow-right"></i></button>
                                             </div>
