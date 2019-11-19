@@ -78,7 +78,7 @@ export default class Section2 extends React.Component {
         };
         var fd = new FormData();
         fd.append("audio", blob, filename);
-        xhr.open("POST", "http://34.70.8.237:5901/speechtotext/", true);
+        xhr.open("POST", "https://34.70.8.237:5901/speechtotext/", true);
         xhr.send(fd);
         li.appendChild(document.createTextNode(" "))//add a space in between
         //add the li element to the ol
