@@ -43,7 +43,7 @@ export default class Section4 extends React.Component {
         var pre = this.state.allMesages
         axios({
             method: 'post',
-            url: 'http://34.70.8.237:5901/texttotext/',
+            url: 'https://34.70.8.237:5901/texttotext/',
             data: { text: that.state.send },
             config: { headers: { 'Content-Type': 'application/json' } }
         })
